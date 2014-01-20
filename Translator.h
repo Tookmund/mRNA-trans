@@ -15,11 +15,16 @@ class Translator{
 	
 	public:
 		void loadmRNA(std::string str);
-		void loadmRNAFromFile(std::string filename);
+		//loads file, returns 0 if success and 1 if failure
+		int loadmRNAFromFile(std::string filename);
+		void saveToFile(std::string filename);
+
 
 		void translate();
 		void printmRNA();
 		void printCodonStrand();
 		void printAminoStrand();
+
+
 
 };

@@ -3,18 +3,23 @@
 
 int main(int argc, char* argv[]){
 
-	std::cout << "loading File...\n";
+	std::cout << "Please Enter input filename: \n";
+	
+	std::string filename;
+	std::cin >> filename;
 
 	Translator translator;
 
-	translator.loadmRNAFromFile("FILE");
+	if(translator.loadmRNAFromFile(filename) != 0)
+		return 0;
+
 	translator.translate();
-	translator.printmRNA();
 
-	std::cout << "Partitioning.." << std::endl;
-	translator.printCodonStrand();
-    std::cout << "translating.." << std::endl;
-    translator.printAminoStrand();
+	std::cout << "Please Enter Output filename: \n";
+	
+	std::string outputFilename;
+	std::cin >> outputFilename;
 
+	translator.saveToFile(outputFilename);
 	return 0;
 }

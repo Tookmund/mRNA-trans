@@ -46,7 +46,7 @@ void Translator::loadmRNA(std::string str)
 	mRNA = str;
 }
 
-void Translator::loadmRNAFromFile(std::string filename)
+int Translator::loadmRNAFromFile(std::string filename)
 {
 	std::fstream file;
 	file.open(filename.c_str());
@@ -56,9 +56,11 @@ void Translator::loadmRNAFromFile(std::string filename)
 		stream << file.rdbuf();
 		mRNA = stream.str();
 		file.close();
+		return 0;
 	}
 	else{
 		std::cout << "Requested mRNA file does not exist" << std::endl;
+		return 1;
 	}
 }
 
@@ -82,6 +84,18 @@ void Translator::printAminoStrand()
 		std::cout << aminoStrand.at(i) << std::endl;
 	}	
 }
+
+void Translator::saveToFile(std::string filename)
+{
+	std::fstream saveFile;
+	saveFile.open(filename.c_str(), std::ios::out | std::ios::trunc);
+
+	for(int i = 0; i < aminoStrand.size(); i++){
+		saveFile << aminoStrand.at(i) << std::endl;
+	}
+
+}
+
 
 void Translator::translate()
 {
