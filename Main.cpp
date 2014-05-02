@@ -10,16 +10,16 @@ std::string menu =
 "+-------------------+\n";
 
 Translator inputFile () {
-std::cout << "Please Enter input filename: \n";
+	std::cout << "Please Enter input filename: \n";
 	
 	std::string filename;
 	std::cin >> filename;
 
 	Translator translator;
 
-	if(translator.loadmRNAFromFile(filename) != 0)
-		return 0;
-
+	if(translator.loadmRNAFromFile(filename) != 0) {
+		translator.loadmRNA("  ");
+	}
 	translator.translate();
 	return translator;
 }
