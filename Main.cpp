@@ -36,7 +36,7 @@ Translator STDIN() {
 int main(int argc, char* argv[]){
 	std::cout << menu;
 	int choice;
-	Tranlator translator;
+	Translator translator;
 	std::cin >> choice;
 	switch(choice) {
 		case 1:
@@ -50,7 +50,7 @@ int main(int argc, char* argv[]){
 			return 0;
 			break;
 	}
-	Translator translator 
+
 
 	std::cout << "Please Enter Output filename: \n";
 	
